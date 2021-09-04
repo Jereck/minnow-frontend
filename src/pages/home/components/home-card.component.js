@@ -6,10 +6,10 @@ import userImage from '../../../images/user.jpg'
 const HomeCard = ({ user }) => {
   return (
     <div className="card">
-      
+      { console.log(user) }      
       <div className="additional">
         <div className="user-card">
-          <img className="user-image center" src={userImage} />
+          <img className="user-image center" src={userImage} alt="Profile Image" />
         </div>
         <div className="more-info">
           <h1>{user.name}</h1>
@@ -36,12 +36,12 @@ const HomeCard = ({ user }) => {
 
       <div className="general">
         <h1>{user.name}</h1>
-        <p>{user.description}</p>
-        { user.skills.map((skill) => {
+        <p>{user.short_description}</p>
+        {/* { user.skills.map((skill) => {
           return (
             <span className="badge">{skill}</span>
           )
-        }) }
+        }) } */}
         <span className="more">Mouse over for more info</span>
       </div>
 

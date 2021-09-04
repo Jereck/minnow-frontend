@@ -31,7 +31,7 @@ export default function Blog() {
       { data.posts.map(({ author, title, content }) => (
         <div style={{ margin: 25, padding: 15, border: '1px solid black' }}>
           <h1>{ title }</h1>
-          <p>{ author.name }</p>
+          <p style={{ fontSize: 12, color: 'grey' }}>{ author.name }</p>
           <DocumentRenderer document={content.document} />
         </div>
       ))}

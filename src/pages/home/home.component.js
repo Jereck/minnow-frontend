@@ -1,31 +1,32 @@
 import React from 'react'
+import { useQuery, gql } from '@apollo/client'
+import { DocumentRenderer } from '@keystone-next/document-renderer';
+
 import HomeCard from './components/home-card.component';
 
 import './home.styles.scss'
 
-
-function Home() {
-  const user1 = {
-    name: 'Hugh Jass',
-    rating: 4,
-    description: 'This is a much longer description about who I am and how I read cards.',
-    skills: ['Cartomancy', 'Tarot', 'Clairvoyant', 'Clairsentient', 'Pendulum']
+const USERS = gql`
+  query {
+    users {
+      name
+      rating
+      short_description
+      full_description {
+        document
+      }
+    }
   }
+`
 
-  const user2 = {
-    name: 'Ben Dover',
-    rating: 5,
-    description: 'This is a much longer description about who I am and how I read cards.',
-    skills: ['Cartomancy', 'Tarot', 'Clairvoyant', 'Clairsentient', 'Pendulum']
-  }
+function Home() {  
+  const { loading, error, data } = useQuery(USERS);
 
-  const user3 = {
-    name: 'Phil McKraken',
-    rating: 2,
-    description: 'This is a much longer description about who I am and how I read cards.',
-    skills: ['Cartomancy', 'Tarot', 'Clairvoyant', 'Clairsentient', 'Pendulum']
+  if (loading) return <p>Loading...</p>;
+  if (error) {
+    console.log(error);
+    return <p>Error :(</p>;
   }
-  
 
   return (
     <>
@@ -35,9 +36,9 @@ function Home() {
       <h1 style={{ textAlign: 'center', fontWeight: 100, fontSize: '3em' }}>Readers</h1>
       <hr style={{ width: '80%' }} />
       <div style={{ display: 'flex' }}>
-        <HomeCard user={user1} />
-        <HomeCard user={user2} />
-        <HomeCard user={user3} />
+        { data.users.map(( user ) => (
+          <HomeCard user={user} />
+        ))}
       </div>
     </>
   )
