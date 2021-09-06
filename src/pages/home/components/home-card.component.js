@@ -9,7 +9,7 @@ const HomeCard = ({ user }) => {
       { console.log(user) }      
       <div className="additional">
         <div className="user-card">
-          <img className="user-image center" src={userImage} alt="Profile Image" />
+          <img className="user-image center" src={userImage} alt="Profile" />
         </div>
         <div className="more-info">
           <h1>{user.name}</h1>

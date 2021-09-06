@@ -1,10 +1,12 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
-import { DocumentRenderer } from '@keystone-next/document-renderer';
+
+import BlogCard from './components/blog-card.component';
 
 const BLOG_POSTS = gql`
   query {
     posts {
+      id
       author {
         name
       }
@@ -28,12 +30,8 @@ export default function Blog() {
   return (
     <div>
       <h1>Blog</h1>
-      { data.posts.map(({ author, title, content }) => (
-        <div style={{ margin: 25, padding: 15, border: '1px solid black' }}>
-          <h1>{ title }</h1>
-          <p style={{ fontSize: 12, color: 'grey' }}>{ author.name }</p>
-          <DocumentRenderer document={content.document} />
-        </div>
+      { data.posts.map(( post ) => (
+        <BlogCard key={post.title} post={post} />
       ))}
     </div>
   )

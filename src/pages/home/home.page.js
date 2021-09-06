@@ -1,6 +1,5 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
-import { DocumentRenderer } from '@keystone-next/document-renderer';
 
 import HomeCard from './components/home-card.component';
 
