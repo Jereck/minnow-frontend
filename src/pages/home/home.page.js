@@ -7,13 +7,11 @@ import './home.styles.scss'
 
 const USERS = gql`
   query {
-    users {
-      name
-      rating
-      short_description
-      full_description {
-        document
-      }
+    findUsers {
+      id
+      firstName
+      lastName
+      userName
     }
   }
 `
@@ -34,10 +32,17 @@ function Home() {
       </div>
       <h1 style={{ textAlign: 'center', fontWeight: 100, fontSize: '3em' }}>Readers</h1>
       <hr style={{ width: '80%' }} />
-      <div style={{ display: 'flex' }}>
-        { data.users.map(( user ) => (
-          <HomeCard user={user} />
-        ))}
+      {/* <Container>
+        <Row>
+          { data.findUsers.map(( user ) => (
+            <Col xs="3">
+              <HomeCard user={user} />
+            </Col>
+          ))}
+        </Row>
+      </Container> */}
+      <div>
+        
       </div>
     </>
   )
