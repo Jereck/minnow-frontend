@@ -1,23 +1,29 @@
-import React from 'react'
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState } from 'react'
 
-import './navbar.scss';
+import { Navbar, Nav, Container, Row, Col, Button } from 'react-bootstrap';
 
-function NavBar() {
+const  NavBar = (props) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => setIsOpen(!isOpen);
+
   return (
-    <div className="nav">
-      <div className="left">
-        <img className="logo" src={"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Logo_TV_2015.svg/1200px-Logo_TV_2015.svg.png" } alt="Logo"/>
-      </div>
-      <div className="middle">
-        <NavLink className='link' exact to="/" activeStyle={{ textTransform: 'uppercase', color: 'black' }} >home</NavLink>
-        <NavLink className='link' to="/blog" activeStyle={{ textTransform: 'uppercase', color: 'black' }}>blog</NavLink>
-        <NavLink className='link' to="/about" activeStyle={{ textTransform: 'uppercase', color: 'black' }}>about</NavLink>
-      </div>
-      <div className="right">
-        <Link className='button' to='/sign-in'>Sign In</Link>
-        <Link className='button register' to='/register'>Register</Link>
-      </div>
+    <div>
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand href="/">MinnowPond</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="justify-content-center">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/blog">Blog</Nav.Link>
+              <Nav.Link href="/about">About</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          <Button className="mr-1" variant="secondary">Sign Up</Button>
+          <Button variant="outline-primary">Sign In</Button>
+        </Container>
+      </Navbar>
     </div>
   )
 }
