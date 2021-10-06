@@ -21,7 +21,7 @@ const  NavBar = (props) => {
             </Nav>
           </Navbar.Collapse>
           <Button className="mr-1" variant="secondary">Sign Up</Button>
-          <Button variant="outline-primary">Sign In</Button>
+          <Button href="/user" variant="outline-primary">Sign In</Button>
         </Container>
       </Navbar>
     </div>
