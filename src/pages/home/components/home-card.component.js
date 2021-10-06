@@ -1,8 +1,5 @@
 import React from 'react'
 
-
-import userImage from '../../../images/user.jpg'
-
 const HomeCard = ({ user }) => {
   return (
     <div>

@@ -1,8 +1,6 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client'
 
-import HomeCard from './components/home-card.component';
-
 import './home.styles.scss'
 
 const USERS = gql`
@@ -32,15 +30,7 @@ function Home() {
       </div>
       <h1 style={{ textAlign: 'center', fontWeight: 100, fontSize: '3em' }}>Readers</h1>
       <hr style={{ width: '80%' }} />
-      {/* <Container>
-        <Row>
-          { data.findUsers.map(( user ) => (
-            <Col xs="3">
-              <HomeCard user={user} />
-            </Col>
-          ))}
-        </Row>
-      </Container> */}
+
       <div>
         
       </div>

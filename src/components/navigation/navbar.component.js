@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 
-import { Navbar, Nav, Container, Row, Col, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 
 const  NavBar = (props) => {
   const [isOpen, setIsOpen] = useState(false)
-
-  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div>
