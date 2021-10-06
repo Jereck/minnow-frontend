@@ -15,7 +15,7 @@ const USERS = gql`
 `
 
 function Home() {  
-  const { loading, error, data } = useQuery(USERS);
+  const { loading, error } = useQuery(USERS);
 
   if (loading) return <p>Loading...</p>;
   if (error) {

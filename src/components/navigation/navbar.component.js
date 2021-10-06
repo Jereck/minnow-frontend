@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 
 const  NavBar = (props) => {
-  const [isOpen, setIsOpen] = useState(false)
+  // const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div>
