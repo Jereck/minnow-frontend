@@ -5,6 +5,8 @@ import Home from './pages/home/home.page';
 import NavBar from './components/navigation/navbar.component';
 import Blog from './pages/blog/blog.page';
 import About from './pages/about/about.page';
+import Login from './pages/login';
+
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
           </Route>
           <Route path='/about'>
             <About />
+          </Route>
+          <Route path='/login'>
+            <Login />
           </Route>
         </Switch>
       </Router>
