@@ -2,3 +2,6 @@ export const LOGIN_REQUEST = 'USERS_LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'USERS_LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'USERS_LOGIN_FAILURE'
 export const USERS_LOGOUT = 'USERS_LOGOUT'
+export const USER_REGISTRATION = 'USER_REGISTRATION'
+
+export const createLogin = (data) => ({ type:LOGIN_REQUEST, payload: data })
