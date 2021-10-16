@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-
 import { DocumentRenderer } from '@keystone-next/document-renderer';
 
+import getFormattedDate from '../../../helpers/dateFormatter'
+
 const BlogCard = ({ post }) => {
+  const formattedDate = getFormattedDate(post.publishDate)
   return (
     <div style={{ 
       margin: 5, 
@@ -12,7 +14,7 @@ const BlogCard = ({ post }) => {
       padding: 15, 
       width: '80%' 
     }}>
-      <p>{ post.author.name } | { post.publishDate }</p>
+      <p>{ post.author.name } | { formattedDate }</p>
       <h1>{ post.title }</h1>
       {/* <DocumentRenderer document={post.content.document} /> */}
       <Link to={{ pathname: `/blog/${post.id}`, state: { sentPost: post } }}>Read More...</Link>
