@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { DocumentRenderer } from '@keystone-next/document-renderer';
+// import { DocumentRenderer } from '@keystone-next/document-renderer';
 
 import getFormattedDate from '../../../helpers/dateFormatter'
 
