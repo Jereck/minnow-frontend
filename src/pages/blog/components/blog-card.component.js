@@ -1,17 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import { DocumentRenderer } from '@keystone-next/document-renderer';
 
-function BlogCard({ post }) {
+const BlogCard = ({ post }) => {
   return (
-    <div style={{ margin: 20, border: '1px solid black', padding: 15 }}>
+    <div style={{ 
+      margin: 5, 
+      border: '1px solid rgba(0, 0, 0, 0.25)', 
+      // boxShadow: 'rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px', 
+      padding: 15, 
+      width: '80%' 
+    }}>
+      <p>{ post.author.name } | { post.publishDate }</p>
       <h1>{ post.title }</h1>
-      <span>{ post.author.name }</span>
-      <DocumentRenderer document={post.content.document} />
-      <Link to='/blogs' params={{ id: post.id }}>Read More...</Link>
+      {/* <DocumentRenderer document={post.content.document} /> */}
+      <Link to={{ pathname: `/blog/${post.id}`, state: { sentPost: post } }}>Read More...</Link>
     </div>
   )
 }
 
-export default BlogCard
+export default withRouter(BlogCard)

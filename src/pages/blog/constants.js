@@ -1,0 +1,4 @@
+export const GET_BLOGS = 'GET_BLOGS'
+export const GET_BLOG = 'GET_BLOG'
+export const GET_BLOGS_SUCCESS = 'GET_BLOGS_SUCCESS'
+export const GET_BLOG_SUCCESS = 'GET_BLOG_SUCCESS'

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import authentication from './pages/login/reducer'
+import blogs from './pages/blog/reducers'
 
 
 const initialState = {
@@ -17,6 +18,7 @@ function context (state = {}, action) {
 export default (state = initialState, action) => {
 
   return combineReducers({
-    authentication
+    authentication,
+    blogs
   })(state, action)
 }
