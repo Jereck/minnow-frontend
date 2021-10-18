@@ -3,8 +3,6 @@ import React from 'react'
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 
 const  NavBar = (props) => {
-  // const [isOpen, setIsOpen] = useState(false)
-
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -19,7 +17,7 @@ const  NavBar = (props) => {
             </Nav>
           </Navbar.Collapse>
           <Button className="mr-1" variant="secondary">Sign Up</Button>
-          <Button href="/user" variant="outline-primary">Sign In</Button>
+          <Button variant="outline-primary"><Nav.Link href="/login">Sign In</Nav.Link></Button>
         </Container>
       </Navbar>
     </div>

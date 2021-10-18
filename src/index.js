@@ -1,16 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import { ApolloProvider } from '@apollo/client'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import store from './store'
+import { Provider } from 'react-redux'
+import { clientNest } from './graphql'
 
-const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql',
-  cache: new InMemoryCache()
-})
+
+const initApp = (root, query) => {
+  store.dispatch({ type: 'SET_CONTEXT', payload: {} })
+
+  return store
+}
+
+const _store = initApp()
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
+  <Provider store={_store}>
+  <ApolloProvider client={clientNest}>
     <App />
-  </ApolloProvider>,
+  </ApolloProvider>
+  </Provider>,
 document.getElementById('root'));
