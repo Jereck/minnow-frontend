@@ -2,13 +2,16 @@ import {
   GET_BLOGS,
   GET_BLOG,
   GET_BLOGS_SUCCESS,
-  GET_BLOG_SUCCESS
+  GET_BLOG_SUCCESS,
+  GET_BLOGS_ERROR,
+  GET_BLOG_ERROR
 } from './constants'
 
 const initialState = {
   loading: false,
   posts: [],
-  post: {}
+  post: {},
+  error: null
 }
 
 export default function blogs(state = initialState, action) {
@@ -30,6 +33,12 @@ export default function blogs(state = initialState, action) {
         ...state,
         loading: false,
         post: action.post
+      }
+    case GET_BLOGS_ERROR:
+    case GET_BLOG_ERROR:
+      return {
+        ...state,
+        error: action.message
       }
     default:
       return state

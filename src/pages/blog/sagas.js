@@ -1,6 +1,6 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import { clientKeyStone } from '../../graphql'
-import { GET_BLOGS, GET_BLOG, GET_BLOGS_SUCCESS, GET_BLOG_SUCCESS } from './constants'
+import { GET_BLOGS, GET_BLOG, GET_BLOGS_SUCCESS, GET_BLOG_SUCCESS, GET_BLOGS_ERROR, GET_BLOG_ERROR } from './constants'
 import { getBlogsQuery, getBlogQuery } from '../../mutations_queries/blog'
 
 const fetchAllBlogsQuery = () => {
@@ -24,7 +24,7 @@ function* fetchBlogs(action) {
     console.log("Saga Fetched Blogs: ", data)
     yield put({ type: GET_BLOGS_SUCCESS, posts: data.posts })
   } catch (error) {
-    console.log("Error @ FetchBlogs Saga: ", error)
+    yield put({ type: GET_BLOGS_ERROR, message: error })
   }
 }
 
@@ -35,7 +35,7 @@ function* fetchBlog(action) {
     console.log("Saga Fetched Blog: ", data)
     yield put({ type: GET_BLOG_SUCCESS, post: data.post })
   } catch (error) {
-    console.log("Error @FetchBlog Saga: ", error)
+    yield put({ type: GET_BLOG_ERROR, message: error})
   }
 }
 
