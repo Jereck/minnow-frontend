@@ -3,9 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 import { createLogger }  from 'redux-logger'
 import reducer  from './reducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
-// const client = new ApolloClient();
-import loginSagas from './pages/login/sagas'
-import blogSagas from './pages/blog/sagas'
+import sagas  from './sagas'
 
 
 const shouldLog = ['development'].includes(process.env.NODE_ENV)
@@ -32,8 +30,7 @@ export const makeStore = (initialState) => {
   )
 
   const sagasCombined = [
-    ...loginSagas,
-    ...blogSagas
+    ...sagas
   ]
   sagasCombined.forEach((saga) => sagaMiddleware.run(saga, store.dispatch))
   return store

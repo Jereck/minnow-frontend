@@ -20,7 +20,6 @@ mutation createUser($user: CreateUserInput!) {
     lastName
     email
     userName
-    password
     advisor
   }
 }
