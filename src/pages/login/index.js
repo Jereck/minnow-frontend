@@ -1,13 +1,7 @@
 import React, {useState} from "react";
 import {Form, Button} from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
-import { LOGIN_REQUEST } from './constants'
-
-// import { ReactComponent as Logo } from "../../assets/instagram.svg";
-// import "./login.css";
-// import { connect } from "react-redux";
-// import { login } from "../../redux/action/login.action";
-
+import { createLogin } from './actions'
 
 const styles = {
   loginContainer: {
@@ -18,6 +12,7 @@ const styles = {
 
 }
 
+// Make or create dispatch from component 
 
 const Login = () => {
   const [userName, setUserName] = useState()
@@ -27,14 +22,12 @@ const Login = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch({type: LOGIN_REQUEST, payload: {userName, password}})
+    dispatch(createLogin({userName, password}))
   }
 
   const handleChange = e => {
     const { name, value } = e.target;
     name === "username" ? setUserName(value) : setPassword(value)
-    console.log(userName)
-    console.log(password)
   }
 
 
@@ -65,12 +58,5 @@ const Login = () => {
 
 }
 
-// const mapDispatchToProps = dispatch => ({
-//   login: isLogin => dispatch(login(isLogin))
-// });
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(Login);
 
 export default Login

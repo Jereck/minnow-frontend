@@ -8,11 +8,7 @@ const httpLinkNest = new HttpLink({
 });
 
 const httpLinkKeyStone = new HttpLink({
-<<<<<<< HEAD
-  uri: "http://localhost:3001/graphql"
-=======
   uri: "http://localhost:5000/api/graphql"
->>>>>>> 872de46814896143ed94ccc0b79d257efb09351f
 });
 
 
