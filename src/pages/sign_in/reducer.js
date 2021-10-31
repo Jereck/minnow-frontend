@@ -8,7 +8,7 @@ const initialState = {
   user: {}
 }
 
-export default function authentication(state = initialState, action) {
+export default function registration(state = initialState, action) {
   switch (action.type) {
     case SIGN_UP_REQUEST:
       return {

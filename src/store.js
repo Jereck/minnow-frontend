@@ -3,9 +3,6 @@ import createSagaMiddleware from 'redux-saga'
 import { createLogger }  from 'redux-logger'
 import reducer  from './reducer'
 import { composeWithDevTools } from 'redux-devtools-extension'
-// const client = new ApolloClient();
-import loginSagas from './pages/login/sagas'
-import blogSagas from './pages/blog/sagas'
 import sagas  from './sagas'
 
 
